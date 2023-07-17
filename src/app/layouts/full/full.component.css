@@ -1,0 +1,135 @@
+.center-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .menu-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 30% 0 0;
+    
+  }
+  
+  .logo {
+    margin-right: auto;
+  }
+
+  
+  .custom-link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: "Rubik", Sans-serif;
+    font-size: 17px;
+    font-weight: 750;
+    text-transform: uppercase;
+  }
+  
+  .custom-link.active-link {
+    color: red;
+  }
+  
+  .custom-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .spacer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DD4124;
+    height: 45px;
+  }
+  
+  .spacer-text {
+    font-size: 18px;
+    color: #f0f0f0;
+    font-weight: bold;
+    margin: 10px;
+  }
+  
+ /* footer */
+ /* Estilos generales del footer */
+footer {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Estilos para la lista de categorías */
+.menu-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Estilos para los iconos de categorías */
+.menu-item i {
+  margin-right: 5px;
+}
+
+/* Estilos para la lista de categorías seleccionadas */
+.selected-categories {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.selected-category {
+  list-style: none;
+  margin: 0px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.selected-category i {
+  margin-right: 5px;
+}
+
+/* Estilos para el texto del footer */
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #000 !important;
+}
+
+.footer-text a {
+  color: #999999;
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.icon{
+  margin: 5px;
+}
+
+.footer-border-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}

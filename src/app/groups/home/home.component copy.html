@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-chip *ngFor="let category of categories" (click)="toggleCategory(category)"
+            [class.selected]="isCategorySelected(category)">
+    {{ category }}
+    <mat-icon matChipRemove (click)="removeCategory(category)">cancel</mat-icon>
+  </mat-chip>
+</mat-list>
+
+<h3>Categorías seleccionadas:</h3>
+<mat-list>
+  <mat-chip *ngFor="let selectedCategory of selectedCategoriesArray" [removable]="true"
+            (removed)="removeCategory(selectedCategory)">
+    {{ selectedCategory }}
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+</mat-list>

@@ -1,0 +1,85 @@
+.card {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.user-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(25deg, #ff0000, black);
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+.initials {
+  text-transform: uppercase;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.user-header h1 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.info-container {
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: red;
+  font-size: 80px !important;
+  margin-bottom: 20px;
+}
+
+.animated-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-size: 28px !important;
+  animation: pulse 2s ease-in-out infinite;
+  font-weight: bold !important;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+h1, h2, h3{
+  font-weight: bold;
+}

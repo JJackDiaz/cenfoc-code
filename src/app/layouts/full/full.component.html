@@ -1,0 +1,124 @@
+<div class="main-container"> 
+        <div class="center-menu">
+          <div class="logo">
+            <picture>
+              <source media='(min-width:0px)' srcset="https://micenfoc.com/wp/wp-content/uploads/2020/03/LOGO_NEGRO.png">
+              <img mat-card-image src="" alt="Photo of a Shiba Inu" style="width: 250px; height: 100px;">
+            </picture>
+          </div>
+          <div class="menu-wrapper">
+            <div [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
+                  <i [ngClass]="['uil',item.icon]"></i>
+                  <a class="custom-link" routerLink="{{item.router}}" routerLinkActive="active-link">{{item.name}}</a>
+            </div>
+          </div>
+          <div class="login-wrapper">
+            <div *ngFor="let item of authMenu.authOptions">
+              <a [routerLink]="item.router" [queryParams]="item.query">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="{{ item.icon }}"><span class="custom-link"></span></mat-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+    <div class="spacer">
+      <p class="spacer-text"><a style="color: white; text-decoration: none;" href="https://www.micenfoc.com/">Más sobre Cenfoc.com</a></p>
+    </div>
+    <mat-sidenav-container>
+        <mat-sidenav-content>
+          <router-outlet><app-spinner></app-spinner></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+    <footer class="content-info background-white border-trans-dark-grey footer-border-top flex-noshrink">
+      <div class="container row flex-align-start full-width flex-justify-between p-y-spacer-2xl">
+        <div class="col-md-2 col-xs-6">
+          <section class="widget nav_menu-2 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Acerca de</p>
+            <ul id="menu-about-footer-nav" class="menu">
+              <li class="menu-item menu-beliefs"><a href="https://elevationchurch.org/beliefs/">Creencias</a></li>
+              <li class="menu-item menu-values"><a href="https://elevationchurch.org/values/">Valores</a></li>
+              <li class="menu-item menu-leadership"><a href="https://elevationchurch.org/leadership/">Liderazgo</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <section class="widget nav_menu-3 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Medios</p>
+            <ul id="menu-media-footer-nav" class="menu">
+              <li class="menu-item menu-sermons"><a href="https://elevationchurch.org/sermons/">Sermones</a></li>
+              <li class="menu-item menu-watch-online"><a href="https://elevationchurch.org/online/">Ver en línea</a></li>
+              <li class="external-link menu-item menu-elevation-store">
+                <a target="_blank" rel="noopener noreferrer" href="https://store.elevationchurch.org/">Elevation Tienda</a>
+              </li>
+              <li class="external-link menu-item menu-worship">
+                <a target="_blank" rel="noopener noreferrer" href="https://elevationworship.com/">Adoración</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <section class="widget nav_menu-4 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Ministerios</p>
+            <ul id="menu-ministries-footer-nav" class="menu">
+              <li class="menu-item menu-egroups"><a href="https://elevationchurch.org/egroups/">eGrupos</a></li>
+              <li class="menu-item menu-ekidz"><a href="https://elevationchurch.org/ekidz/">eKidz</a></li>
+              <li class="menu-item menu-youth"><a href="https://elevationchurch.org/youth/">Youth</a></li>
+              <li class="external-link menu-item menu-outreach">
+                <a target="_blank" rel="noopener noreferrer" href="https://elevationoutreach.com/">Alcance a la comunidad</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-md-2 col-xs-6">
+          <section class="widget nav_menu-5 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Oportunidades</p>
+            <ul id="menu-opportunities-footer-nav" class="menu">
+              <li class="menu-item menu-jobs"><a href="https://elevationchurch.org/jobs/">Trabajos</a></li>
+              <li class="menu-item menu-internships"><a href="https://elevationchurch.org/internships/">Pasantías</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-md-2 col-xs-6 flex-column">
+          <section class="widget nav_menu-6 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Únete a nosotros</p>
+            <ul id="menu-join-us-footer-nav" class="menu">
+              <li class="menu-item menu-find-a-location"><a href="https://elevationchurch.org/locations/">Encontrar una ubicación</a></li>
+              <li class="menu-item menu-watch-parties"><a href="https://elevationchurch.org/watch-parties/">Watch Parties</a></li>
+              <li class="menu-item menu-events"><a href="https://elevationchurch.org/events/">Eventos</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="col-md-2 col-xs-6 flex-column">
+          <section class="widget nav_menu-8 widget_nav_menu p-b-spacer-md">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Finanzas</p>
+            <ul id="menu-finance-footer-nav" class="menu">
+              <li class="menu-item menu-giving"><a href="https://elevationchurch.org/giving/">Dar</a></li>
+              <li class="menu-item menu-annual-report"><a href="https://elevationchurch.org/annual-report/">Informe Anual</a></li>
+            </ul>
+          </section>
+          <section class="widget">
+            <p class="smaller sec-font bold half-here m-b-spacer-sm">Personal</p>
+            <ul id="menu-personal-footer-nav" class="menu">
+              <li class="menu-item menu-myelevation"><a href="https://myelevation.elevationchurch.org/">MyElevation</a></li>
+              <li class="menu-item menu-contact-us"><a href="https://elevationchurch.org/contact/">Contáctenos</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+      <div class="footer-info">
+        <div class="icon">
+          <a href="https://www.youtube.com/user/ElevationOnline" class="icon" >
+            <span><i class="fa fa-youtube"></i></span>
+          </a>            
+          <a href="https://www.youtube.com/user/ElevationOnline" class="icon">
+            <span><i class="fa fa-facebook"></i></span>
+          </a>            
+        </div>
+      </div>
+      <div class="full-width border-trans-dark-grey footer-border-top p-y-spacer-md background-white p-x-spacer-xl row between-md middle-md">
+        <div class="row center-xs start-md middle-xs full-width text-center">
+          <small class="half-here inline m-r-spacer-md prim-font text-alt-dark-grey">© 2023 Iglesia Cenfoc. Todos los derechos reservados </small>
+        </div>
+      </div>
+    </footer>
+    
+</div>
