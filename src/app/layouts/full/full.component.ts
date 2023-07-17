@@ -49,7 +49,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
       {
         name: 'BIENVENIDOS',
         icon: 'uil uil-estate',
-        router: ['/bienvenidos']
+        router: ['/show']
       },
       {
         name: 'ALABANZAS',
