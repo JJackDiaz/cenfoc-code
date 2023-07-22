@@ -1,16 +1,20 @@
-<mat-list>
-  <mat-chip *ngFor="let category of categories" (click)="toggleCategory(category)"
-            [class.selected]="isCategorySelected(category)">
-    {{ category }}
-    <mat-icon matChipRemove (click)="removeCategory(category)">cancel</mat-icon>
-  </mat-chip>
-</mat-list>
-
-<h3>Categorías seleccionadas:</h3>
-<mat-list>
-  <mat-chip *ngFor="let selectedCategory of selectedCategoriesArray" [removable]="true"
-            (removed)="removeCategory(selectedCategory)">
-    {{ selectedCategory }}
-    <mat-icon matChipRemove>cancel</mat-icon>
-  </mat-chip>
-</mat-list>
+<mat-grid-list cols="2" rowHeight="1:1" class="custom-grid-list">
+  <mat-grid-tile>
+    <h3>Seleccione una categoría:</h3>
+    <mat-selection-list #categoryList>
+      <mat-list-option *ngFor="let category of categories" (click)="toggleCategory(category)">
+        {{ category }}
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <h3>Categorías seleccionadas:</h3>
+    <mat-list>
+      <mat-chip *ngFor="let selectedCategory of selectedCategoriesArray" [removable]="true"
+                (removed)="removeCategory(selectedCategory)">
+        {{ selectedCategory }}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-list>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,22 +1,41 @@
+<div class="grid-container">
+  <div class="grid-item-cat">
+    <mat-tree class="categories" [dataSource]="dataSource" [treeControl]="treeControl" (selectionChange)="onSelectionChange($event)">
+      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+          </mat-icon>
+        </button>
+      </mat-tree-node>
+      <mat-tree-node *matTreeNodeDef="let node; when: isLeaf" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle>
+          <mat-checkbox [checked]="node.checked" (change)="toggleSelection(node)"></mat-checkbox>
+          <span class="node-label" (click)="searchImage(node.name)">{{ node.name }}</span>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
+          </mat-icon>
+        </button>
+      </mat-tree-node>
+    </mat-tree>
+  </div>
 
-<mat-grid-list cols="2" rowHeight="1:1" class="custom-grid-list">
-  <mat-grid-tile>
-    <h3>Seleccione una categoría:</h3>
-    <mat-selection-list #categoryList>
-      <mat-list-option *ngFor="let category of categories" (click)="toggleCategory(category)">
-        {{ category }}
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <h3>Categorías seleccionadas:</h3>
-    <mat-list>
-      <mat-chip *ngFor="let selectedCategory of selectedCategoriesArray" [removable]="true"
-                (removed)="removeCategory(selectedCategory)">
-        {{ selectedCategory }}
-        <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip>
-    </mat-list>
-  </mat-grid-tile>
-</mat-grid-list>
-  
+  <div class="separator"></div>
+
+  <div class="grid-item-group">
+    <h1 class="title">Buscar un Grupo de Conexión</h1>
+    <h3 class="description">Hay un grupo cenfoc en línea esperándote.</h3>
+    <div class="grid-item-group">
+      <div class="card-container">
+        <mat-card *ngFor="let category of categories" class="card">
+          <div class="initials-circle">{{ getInitials(category.address) }}</div>
+          <div class="card-content">
+            <div class="card-title">Célula del líder: {{ category.leader }}</div>
+            <div class="info">Dirección: {{ category.name }}</div>
+            <div class="info">Dirección: {{ category.address }}</div>
+          </div>
+        </mat-card>
+      </div>      
+    </div>
+  </div>
+</div>

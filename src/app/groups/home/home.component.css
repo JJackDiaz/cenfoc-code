@@ -1,10 +1,121 @@
-.custom-grid-list {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .custom-grid-list mat-grid-tile {
-    border-radius: 10px;
-  }
-  
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1px 2fr; /* Divide la página en dos columnas y una línea de separación */
+  gap: 30px; /* Espacio entre los elementos */
+  background-color: white; /* Fondo blanco */
+}
+
+.separator {
+  background-color: #ccc; /* Color de la línea de separación */
+  height: 800px;
+}
+
+.image {
+  display: flex;
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+.image-item {
+  width: 350px;
+  height: 250px;
+}
+
+.grid-item-cat {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid-item-group {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.title {
+  font-weight: bold; /* Texto en negrita */
+  margin-bottom: 1px;
+  margin-left: 10px;
+}
+
+.description {
+  color: gray; /* Color de texto en gris */
+  margin-left: 10px;
+}
+
+/* Estilos para los nodos */
+.node-label {
+  display: inline-block;
+  width: 80px;
+}
+
+.node-label.active {
+  background-color: #FFA500;
+}
+
+/* Estilo para el contenedor de las tarjetas */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estilo para cada tarjeta */
+.card {
+  /* Hacer que la tarjeta ocupe 33.33% del ancho disponible (3 columnas) */
+  width: 30.33%;
+  /* Ajustar el espaciado entre las tarjetas */
+  margin: 10px;
+  /* Hacer que la tarjeta ocupe todo el alto disponible */
+  height: 250px;
+  /* Agregar otros estilos como el color de fondo, bordes, sombras, etc. */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Hacer que la tarjeta sea un contenedor flexible con dirección de columna */
+  display: flex;
+  flex-direction: column; /* Alinear los elementos verticalmente */
+}
+
+/* Estilo para el círculo de referencia */
+.initials-circle {
+  width: 100%;
+  /* Alinear el círculo horizontalmente en el centro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  background-color: #e6490a; /* Puedes cambiar el color del círculo aquí */
+  color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Estilo para el contenido de la card */
+.card-content {
+  flex-direction: column; /* Alinear los elementos verticalmente */
+  padding: 20px;
+ 
+}
+
+/* Estilo para el título del card */
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 30px; /* Espacio entre el título y el contenido */
+}
+
+/* Estilo para el contenido */
+.info {
+  font-size: 14px;
+  padding: 2px;
+}
+
+/* Estilo para los enlaces de dirección */
+.info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Estilo para los enlaces de dirección al pasar el mouse */
+.info a:hover {
+  text-decoration: underline;
+}

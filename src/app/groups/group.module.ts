@@ -14,6 +14,7 @@ import { GroupRoutes } from './group.routing';
 import { HomeComponent } from './home/home.component';
 import { GroupModule } from '../group-module';
 import { ShowComponent } from './show/show.component';
+import { JoinComponent } from './join/join.component';
 
 
 @NgModule({
@@ -31,5 +32,8 @@ import { ShowComponent } from './show/show.component';
     ShowComponent
   ],
   providers: [],
+  declarations: [
+    JoinComponent
+  ],
 })
 export class GroupComponentsModule {}

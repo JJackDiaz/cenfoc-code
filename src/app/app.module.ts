@@ -16,8 +16,6 @@ import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
-import { HomeComponent } from './groups/home/home.component';
-import { ShowComponent } from './groups/show/show.component';
 import { GroupModule } from './group-module';
 
 @NgModule({
