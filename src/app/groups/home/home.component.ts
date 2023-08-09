@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { HttpClient } from '@angular/common/http';
@@ -7,30 +7,19 @@ import { NgFor, NgIf } from '@angular/common';
 import { GroupModule } from 'src/app/group-module';
 import { ApiService } from 'src/app/api.service';
 
-interface FoodNode {
-  name: string;
-  children?: FoodNode[];
-  image?: Image;
-  checked?: boolean;
-}
-
-interface Image {
-  url: string;
-  alt: string;
-}
-
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-  isLeaf: boolean;
-  checked?: boolean;
-}
 
 interface Category {
-  name: string;
+  id: string;
   address: string;
+  day: string;
+  hour: string;
   leader: string;
+  typeConnection: string;
+}
+
+interface Faq {
+  category: string;
+  option?: string[];
 }
 
 @Component({
@@ -40,30 +29,91 @@ interface Category {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
-  getInitials(name: string): string {
-    const words = name.split(' ');
-    const initials = words.map(word => word.charAt(0).toUpperCase()).join('');
-    return initials;
-  }
-  
-  treeControl: FlatTreeControl<ExampleFlatNode>;
-  treeFlattener: MatTreeFlattener<FoodNode, ExampleFlatNode>;
-  dataSource: MatTreeFlatDataSource<FoodNode, ExampleFlatNode>;
-  
+  frequentlyAskedQuestions: Faq[] = [
+    {
+      category: 'Horario',
+      option: ['11:00', '12:00']
+    },
+    {
+      category: 'Dia',
+      option: ['1', '2', '3', '4', '5', '6', '7']
+    },
+  ];
+
+  selectedHorarioOptions: string[] = [];
+  selectedDiaOptions: string[] = [];
   categories: Category[] = [];
 
+  // Función auxiliar para mapear valores numéricos de días a nombres de días de la semana
+  mapDayToWeekday(day: string): string {
+    const daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    const numericDay = parseInt(day, 10);
+    if (numericDay >= 1 && numericDay <= 7) {
+      return daysOfWeek[numericDay - 1];
+    }
+    return '';
+  }
+
+  constructor(private apiService: ApiService) {}
+
   ngOnInit() {
-    this.apiService.getGroups().subscribe(
+    this.updateData();
+  }
+
+  onSelectHorarioOption(option: string) {
+    if (this.isHorarioOptionSelected(option)) {
+      this.selectedHorarioOptions = this.selectedHorarioOptions.filter(selectedOption => selectedOption !== option);
+    } else {
+      this.selectedHorarioOptions.push(option);
+    }
+    this.updateData();
+  }
+
+  onSelectDiaOption(option: string) {
+    if (this.isDiaOptionSelected(option)) {
+      this.selectedDiaOptions = this.selectedDiaOptions.filter(selectedOption => selectedOption !== option);
+    } else {
+      this.selectedDiaOptions.push(option);
+    }
+    this.updateData();
+  }
+
+  isHorarioOptionSelected(option: string): boolean {
+    return this.selectedHorarioOptions.includes(option);
+  }
+
+  isDiaOptionSelected(option: string): boolean {
+    return this.selectedDiaOptions.includes(option);
+  }
+
+  updateData() {
+    
+    let additionalUrl = '';
+    if (this.selectedHorarioOptions.length > 0) {
+      additionalUrl += `&filter[hour]=${this.selectedHorarioOptions.join(',')}`;
+    }
+    if (this.selectedDiaOptions.length > 0) {
+      additionalUrl += `&filter[day]=${this.selectedDiaOptions.join(',')}`;
+    }
+
+    this.apiService.getGroups(additionalUrl).subscribe(
       data => {
         // Aquí puedes manipular los datos obtenidos de la API
+        this.categories = [];
         for (let i = 0; i < data.length; i++) {
-          const category: Category = { name: data[i].id , address: data[i].address,  leader: data[i].leader_id};
+          const category: Category = { 
+            id: data[i].id,
+            leader: data[i].leader.name,
+            address: data[i].address,
+            day: this.mapDayToWeekday(data[i].day),
+            hour: data[i].hour,
+            typeConnection: data[i].typeConnection.name
+          };
           this.categories.push(category);
-          console.log(category)
+          console.log(data[i]);
         }
-
       },
       error => {
         console.error(error);
@@ -71,90 +121,21 @@ export class HomeComponent {
     );
   }
 
-  selectedImage: Image | undefined;
 
-  constructor(private http: HttpClient, private apiService: ApiService) {
-    this.treeControl = new FlatTreeControl<ExampleFlatNode>(
-      node => node.level,
-      node => node.expandable
-    );
+  selectedOptions: string[] = [];
 
-    this.treeFlattener = new MatTreeFlattener<FoodNode, ExampleFlatNode>(
-      (node: FoodNode, level: number) => ({
-        expandable: !!node.children && node.children.length > 0,
-        name: node.name,
-        level: level,
-        isLeaf: !node.children || node.children.length === 0,
-        checked: node.checked || false
-      }),
-      node => node.level,
-      node => node.expandable,
-      node => node.children
-    );
-
-    this.dataSource = new MatTreeFlatDataSource<FoodNode, ExampleFlatNode>(
-      this.treeControl,
-      this.treeFlattener
-    );
-
-    this.dataSource.data = TREE_DATA;
-  }
-
-  onSelectionChange(event: any): void {
-    if (event.option.selected && !this.treeControl.isExpanded(event.option.value)) {
-      this.treeControl.toggle(event.option.value);
+  toggleOption(option: string) {
+    if (this.selectedOptions.includes(option)) {
+      this.selectedOptions = this.selectedOptions.filter((item) => item !== option);
+    } else {
+      this.selectedOptions.push(option);
     }
   }
 
-  toggleSelection(node: ExampleFlatNode): void {
-    node.checked = !node.checked;
-    this.treeControl.expand(node);
-  }
-
-  searchImage(name: string): void {
-    // Realizar solicitud HTTP para obtener la imagen correspondiente
-    this.getImageFromAPI(name).subscribe((image: Image) => {
-      this.selectedImage = image;
-    });
-  }
-
-  getImageFromAPI(name: string): Observable<Image> {
-    const images = [
-      { url: 'https://example.com/image1.jpg', alt: 'Image 1' },
-      { url: 'https://example.com/image2.jpg', alt: 'Image 2' },
-      { url: 'https://example.com/image3.jpg', alt: 'Image 3' },
-      { url: 'https://example.com/image4.jpg', alt: 'Image 4' },
-      { url: 'https://example.com/image5.jpg', alt: 'Image 5' }
-    ];
-
-    const randomIndex = Math.floor(Math.random() * images.length);
-    const randomImage = images[randomIndex];
-
-    return of(randomImage);
-  }
-
-  hasChild(_: number, node: ExampleFlatNode): boolean {
-    return node.expandable;
-  }
-
-  isLeaf(_: number, node: ExampleFlatNode): boolean {
-    return node.isLeaf;
+  getInitials(name: string): string {
+    const words = name.split(' ');
+    const initials = words.map(word => word.charAt(0).toUpperCase()).join('');
+    return initials;
   }
 }
 
-const TREE_DATA: FoodNode[] = [
-  {
-    name: 'Categoría 1',
-    children: [
-      { name: 'Subcategoría 1.1' },
-      { name: 'Subcategoría 1.2' }
-    ]
-  },
-  {
-    name: 'Categoría 2',
-    children: [
-      { name: 'Subcategoría 2.1' },
-      { name: 'Subcategoría 2.2' }
-    ]
-  }
-];

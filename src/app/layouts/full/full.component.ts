@@ -32,7 +32,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   mainMenu: {
     defaultOptions: Array<any>, accessLink: Array<any>
   } = { defaultOptions: [], accessLink: [] }
-  
+
   authMenu: {
     authOptions: Array<any>, accessLink: Array<any>
   } = { authOptions: [], accessLink: [] }
@@ -49,7 +49,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
       {
         name: 'BIENVENIDOS',
         icon: 'uil uil-estate',
-        router: ['/show']
+        router: ['https://www.micenfoc.com/ministry/']
       },
       {
         name: 'ALABANZAS',
@@ -62,7 +62,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
         router: ['/donaciones']
       },
     ]
-    
+
     this.authMenu.authOptions = [
       {
         name: 'Login',
@@ -73,3 +73,4 @@ export class FullComponent implements OnDestroy, AfterViewInit {
 
   }
 }
+

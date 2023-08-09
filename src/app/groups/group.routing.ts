@@ -10,7 +10,7 @@ export const GroupRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'show',
+    path: 'show/:id',
     component: ShowComponent
   },
   {

@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -45,6 +45,7 @@ import { PortalModule } from '@angular/cdk/portal';
 
 import { MatTreeModule } from '@angular/material/tree';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
 
 /**
@@ -96,7 +97,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         PortalModule,
         MatTreeModule,
         MatListModule,
-        MatSelectModule
+        MatSelectModule,
+        RouterModule,
+        MatButtonModule,
+        
         
     ],
     imports: [

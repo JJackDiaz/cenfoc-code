@@ -1,41 +1,54 @@
 <div class="grid-container">
   <div class="grid-item-cat">
-    <mat-tree class="categories" [dataSource]="dataSource" [treeControl]="treeControl" (selectionChange)="onSelectionChange($event)">
-      <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-        <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
-          <mat-icon class="mat-icon-rtl-mirror">
-            {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
-          </mat-icon>
-        </button>
-      </mat-tree-node>
-      <mat-tree-node *matTreeNodeDef="let node; when: isLeaf" matTreeNodePadding>
-        <button mat-icon-button matTreeNodeToggle>
-          <mat-checkbox [checked]="node.checked" (change)="toggleSelection(node)"></mat-checkbox>
-          <span class="node-label" (click)="searchImage(node.name)">{{ node.name }}</span>
-          <mat-icon class="mat-icon-rtl-mirror">
-            {{ treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right' }}
-          </mat-icon>
-        </button>
-      </mat-tree-node>
-    </mat-tree>
+    <mat-accordion class="custom-accordion">
+      <!-- Filtro -->
+      <mat-expansion-panel *ngFor="let faq of frequentlyAskedQuestions">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ faq.category }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-chip-option  *ngFor="let option of faq.option" (click)="faq.category === 'Horario' ? onSelectHorarioOption(option) : onSelectDiaOption(option)"
+          [color]="selectedOptions.includes(option) ? 'warn' : null"
+          (click)="toggleOption(option)"
+        >
+            {{ option }}
+          </mat-chip-option>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>    
   </div>
 
   <div class="separator"></div>
-
   <div class="grid-item-group">
     <h1 class="title">Buscar un Grupo de Conexión</h1>
     <h3 class="description">Hay un grupo cenfoc en línea esperándote.</h3>
-    <div class="grid-item-group">
-      <div class="card-container">
-        <mat-card *ngFor="let category of categories" class="card">
-          <div class="initials-circle">{{ getInitials(category.address) }}</div>
-          <div class="card-content">
-            <div class="card-title">Célula del líder: {{ category.leader }}</div>
-            <div class="info">Dirección: {{ category.name }}</div>
-            <div class="info">Dirección: {{ category.address }}</div>
-          </div>
-        </mat-card>
-      </div>      
+    <div class="selected-options">
+      <mat-list>
+        <mat-chip *ngFor="let option of selectedOptions" color="primary">
+          {{ option }}
+        </mat-chip>
+      </mat-list>
     </div>
-  </div>
+    <div class="grid-item-group">
+      <mat-grid-list cols="3">
+        <mat-grid-tile *ngFor="let category of categories" class="grid-item-group">
+          <div class="card-container">
+            <mat-card class="card">
+              <div class="initials-circle">{{ getInitials(category.leader) }}</div>
+              <div class="card-content">
+                <div class="card-title">{{ category.leader }}</div>
+                <div class="info">{{ category.address }}</div>
+                <p class="info">Horario: {{ category.hour }}</p>
+                <div class="info" style="font-weight: bold; margin-top: 10px;">{{ category.day }} - {{ category.typeConnection }}</div>
+                <div class="button-join">
+                  <button class="join" mat-raised-button [routerLink]="['/show', category.id]">Unirse</button>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div> 
 </div>

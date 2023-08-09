@@ -83,3 +83,96 @@
 h1, h2, h3{
   font-weight: bold;
 }
+
+/* Para dispositivos pequeños (e.g. phones) */
+@media only screen and (max-width: 600px) {
+  .grid-list {
+    cols: 1; /* Cambiar a una sola columna en dispositivos pequeños */
+  }
+
+  .circle-container {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+  }
+
+  .profile-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .user-header h1 {
+    font-size: 18px;
+  }
+
+  .info-container h1 {
+    font-size: 20px;
+  }
+
+  .info-container p {
+    font-size: 14px;
+  }
+
+  .button-container {
+    font-size: 30px;
+  }
+
+  .animated-button {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .user-header {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .circle-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    margin-top: 20px;
+  }
+}
+
+/* Para dispositivos grandes (e.g. laptops, desktops) */
+@media only screen and (min-width: 1025px) {
+  .circle-container {
+    width: 150px;
+    height: 150px;
+    font-size: 60px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .user-header h1 {
+    font-size: 30px;
+  }
+
+  .info-container h1 {
+    font-size: 30px;
+  }
+
+  .info-container p {
+    font-size: 18px;
+  }
+
+  .button-container {
+    font-size: 80px;
+  }
+
+  .animated-button {
+    width: 120px;
+    height: 120px;
+    font-size: 40px;
+  }
+}
+

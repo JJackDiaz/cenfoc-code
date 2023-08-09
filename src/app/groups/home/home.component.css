@@ -1,3 +1,4 @@
+/* Estilos comunes para todos los tamaños de pantalla */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1px 2fr; /* Divide la página en dos columnas y una línea de separación */
@@ -55,16 +56,17 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between; /* Distribuir las tarjetas equitativamente */
 }
 
 /* Estilo para cada tarjeta */
 .card {
-  /* Hacer que la tarjeta ocupe 33.33% del ancho disponible (3 columnas) */
-  width: 30.33%;
+  /* Hacer que la tarjeta ocupe 100% del ancho disponible en dispositivos móviles */
+  width: 100% !important;
   /* Ajustar el espaciado entre las tarjetas */
-  margin: 10px;
-  /* Hacer que la tarjeta ocupe todo el alto disponible */
-  height: 250px;
+   /* Hacer que la tarjeta ocupe todo el alto disponible */
+  height: 270px !important;
+  width: 250px !important;
   /* Agregar otros estilos como el color de fondo, bordes, sombras, etc. */
   background-color: #f0f0f0;
   border-radius: 10px;
@@ -92,21 +94,22 @@
 /* Estilo para el contenido de la card */
 .card-content {
   flex-direction: column; /* Alinear los elementos verticalmente */
-  padding: 20px;
- 
+  padding: 10px;
 }
 
 /* Estilo para el título del card */
 .card-title {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 30px; /* Espacio entre el título y el contenido */
+  margin-bottom: 10px; /* Espacio entre el título y el contenido */
+  text-align: center;
 }
 
 /* Estilo para el contenido */
 .info {
   font-size: 14px;
   padding: 2px;
+  text-align: center;
 }
 
 /* Estilo para los enlaces de dirección */
@@ -119,3 +122,94 @@
 .info a:hover {
   text-decoration: underline;
 }
+
+.button-join{
+  text-align: center;
+  margin-top: 25px;
+}
+
+.join{
+  background-color: #e6490a !important;
+  color: white !important;
+}
+
+/* Estilos para el acordeón personalizado */
+.mat-accordion {
+  width: 60%; /* Ajusta el ancho del acordeón según tus preferencias */
+  float: right; /* Alinea el acordeón a la derecha */
+  border: none !important;
+  background-color: white !important;
+  margin-top: 130px;
+}
+
+/* Eliminar el borde de los paneles del acordeón */
+.custom-accordion mat-expansion-panel {
+  border-bottom: 1px solid rgba(24,24,24,.08);
+  margin-bottom: 5px !important;
+  padding-bottom: 5px !important;
+  margin-right: 0% !important;
+  background-color: white !important;
+}
+
+/* Establecer una separación entre los acordeones */
+.custom-accordion mat-expansion-panel:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+/* Agregar una línea que separe cada acordeón */
+.custom-accordion mat-expansion-panel-header::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #e0e0e0; /* Puedes ajustar el color de la línea según tus preferencias */
+  margin-top: 8px; /* Ajusta la separación entre la línea y el contenido del acordeón */
+}
+.mat-expansion-panel {
+  box-shadow: none;
+}
+
+/* Media Queries para dispositivos de tamaño pequeño (celulares y tablets) */
+@media (max-width: 767px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+  }
+  
+  .separator {
+    height: 1px; /* Oculta la línea de separación */
+  }
+  
+  .image-item {
+    width: 100%; /* Ocupa todo el ancho disponible en dispositivos pequeños */
+  }
+  
+  .grid-item-cat,
+  .grid-item-group {
+    justify-content: center; /* Centra el contenido en dispositivos pequeños */
+  }
+  
+  .title,
+  .description {
+    text-align: center; /* Centra el texto en dispositivos pequeños */
+    margin-left: 0; /* Elimina el margen izquierdo en dispositivos pequeños */
+  }
+  
+  /* Oculta los nodos en dispositivos pequeños */
+  .node-label {
+    display: none;
+  }
+}
+
+/* Media Queries para dispositivos de tamaño mediano (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card {
+    width: 48%; /* Distribuye las tarjetas en dos columnas en tablets */
+  }
+}
+
+/* Media Queries para dispositivos de tamaño grande (PCs) */
+@media (min-width: 1024px) {
+  .card {
+    width: 30.33%; /* Vuelve al tamaño original en PCs */
+  }
+}
+

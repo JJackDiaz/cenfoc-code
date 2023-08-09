@@ -1,20 +1,51 @@
-<mat-grid-list cols="2" rowHeight="1:1" class="custom-grid-list">
-  <mat-grid-tile>
-    <h3>Seleccione una categoría:</h3>
-    <mat-selection-list #categoryList>
-      <mat-list-option *ngFor="let category of categories" (click)="toggleCategory(category)">
-        {{ category }}
-      </mat-list-option>
-    </mat-selection-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <h3>Categorías seleccionadas:</h3>
-    <mat-list>
-      <mat-chip *ngFor="let selectedCategory of selectedCategoriesArray" [removable]="true"
-                (removed)="removeCategory(selectedCategory)">
-        {{ selectedCategory }}
-        <mat-icon matChipRemove>cancel</mat-icon>
-      </mat-chip>
-    </mat-list>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="grid-container">
+  <div class="grid-item-cat">
+    <mat-accordion class="custom-accordion">
+      <mat-expansion-panel *ngFor="let faq of frequentlyAskedQuestions">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ faq.category }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+          <mat-chip-option  *ngFor="let option of faq.option" (click)="faq.category === 'Horario' ? onSelectHorarioOption(option) : onSelectDiaOption(option)"
+          [color]="selectedOptions.includes(option) ? 'warn' : null"
+          (click)="toggleOption(option)"
+        >
+            {{ option }}
+          </mat-chip-option>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>    
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="grid-item-group">
+    <h1 class="title">Buscar un Grupo de Conexión</h1>
+    <h3 class="description">Hay un grupo cenfoc en línea esperándote.</h3>
+    <div class="selected-options">
+      <mat-list>
+        <mat-chip *ngFor="let option of selectedOptions" color="primary">
+          {{ option }}
+        </mat-chip>
+      </mat-list>
+    </div>
+    <div class="grid-item-group">
+      <div class="card-container">
+        <mat-card *ngFor="let category of categories" class="card">
+          <div class="initials-circle">{{ getInitials(category.leader) }}</div>
+          <div class="card-content">
+            <div class="card-title">{{ category.leader }}</div>
+            <div class="info">{{ category.address }} - {{ category.hour }}</div>
+            <div class="info" style="font-weight: bold; margin-top: 10px;">{{ category.day }} - {{ category.typeConnection }}</div>
+            <div class="button-join">
+              <!-- <button class="join" mat-raised-button color="warn" [routerLink]="['/category', category.id]">Unirse</button>-->
+              <button class="join" mat-raised-button [routerLink]="['/show']">Unirse</button>
+            </div>
+          </div>
+        </mat-card>
+      </div>      
+    </div>
+  </div>
+</div>

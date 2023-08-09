@@ -10,10 +10,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Ejemplo de método para obtener datos de la API mediante una solicitud GET
-  public getGroups(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/groups`);
+  // Método para obtener datos de la API mediante una solicitud GET
+  public getGroups(additionalUrl: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/groups?expand=type,typeConnection,leader&${additionalUrl}`);
   }
 
-  // Puedes agregar más métodos para realizar otras operaciones (POST, PUT, DELETE, etc.)
+  public getGroup(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/groups?expand=type,typeConnection,leader&filter[id]=${id}`);
+  }
+
+  // dns2.p02.nsone.net
+  // dns1.p02.nsone.net
+  // dns3.p02.nsone.net
+  // dns4.p02.nsone.net
 }
