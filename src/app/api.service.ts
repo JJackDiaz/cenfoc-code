@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://admin.micenfoc.com/api'; // Reemplaza esto con la URL de tu API
+  private apiUrl = 'https://admin.micenfoc.com/api'; // Reemplaza esto con la URL de tu API
 
   constructor(private http: HttpClient) { }
 
