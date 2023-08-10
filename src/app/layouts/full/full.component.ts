@@ -33,10 +33,6 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     defaultOptions: Array<any>, accessLink: Array<any>
   } = { defaultOptions: [], accessLink: [] }
 
-  authMenu: {
-    authOptions: Array<any>, accessLink: Array<any>
-  } = { authOptions: [], accessLink: [] }
-
   customOptions: Array<any> = []
 
   ngOnInit(): void {
@@ -44,7 +40,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
       {
         name: 'HOME',
         icon: 'uil uil-estate',
-        router: ['/home']
+        router: ['https://www.micenfoc.com/']
       },
       {
         name: 'BIENVENIDOS',
@@ -54,23 +50,27 @@ export class FullComponent implements OnDestroy, AfterViewInit {
       {
         name: 'ALABANZAS',
         icon: 'uil uil-estate',
-        router: ['/alabanzas']
+        router: ['/https://www.micenfoc.com/cenfoc-adoracion/']
       },
       {
         name: 'DONACIONES',
         icon: 'uil uil-estate',
-        router: ['/donaciones']
+        router: ['https://www.micenfoc.com/donaciones/']
       },
-    ]
-
-    this.authMenu.authOptions = [
       {
-        name: 'Login',
-        icon: 'person',
-        router: ['/login']
+        name: 'CONEXION',
+        icon: 'uil uil-estate',
+        router: ['http://localhost:4200/groups']
       },
     ]
 
   }
+  socialMediaLinks = [
+    { name: 'Facebook', icon: 'fa fa-facebook-f', link: 'https://www.facebook.com/iglesiacenfoc/' },
+    { name: 'Instagram', icon: 'fa fa-instagram', link: 'https://www.instagram.com/iglesiacenfoc/' },
+    { name: 'YouTube', icon: 'fa fa-youtube', link: 'https://www.youtube.com/channel/UCUxrU6y9ADFipNjYq34LugQ' },
+    { name: 'Correo', icon: 'fa fa-envelope', link: 'mailto:contacto@micenfoc.com' },
+    { name: 'Login', icon: 'fa fa-user', link: 'https://admin.micenfoc.com' }
+  ];
 }
 

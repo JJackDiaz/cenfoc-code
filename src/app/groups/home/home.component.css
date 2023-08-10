@@ -1,14 +1,14 @@
 /* Estilos comunes para todos los tamaños de pantalla */
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1px 2fr; /* Divide la página en dos columnas y una línea de separación */
+  grid-template-columns: 1fr 1px 3fr; /* Divide la página en dos columnas y una línea de separación */
   gap: 30px; /* Espacio entre los elementos */
   background-color: white; /* Fondo blanco */
 }
 
 .separator {
   background-color: #ccc; /* Color de la línea de separación */
-  height: 800px;
+  height: 100%;
 }
 
 .image {
@@ -28,7 +28,7 @@
 
 .grid-item-group {
   text-align: left;
-  margin-left: 10px;
+  margin-left: 2px;
 }
 
 .title {
@@ -39,7 +39,7 @@
 
 .description {
   color: gray; /* Color de texto en gris */
-  margin-left: 10px;
+  margin-left: 2px;
 }
 
 /* Estilos para los nodos */
@@ -56,15 +56,11 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Distribuir las tarjetas equitativamente */
+  justify-content: space-between;
 }
 
 /* Estilo para cada tarjeta */
 .card {
-  /* Hacer que la tarjeta ocupe 100% del ancho disponible en dispositivos móviles */
-  width: 100% !important;
-  /* Ajustar el espaciado entre las tarjetas */
-   /* Hacer que la tarjeta ocupe todo el alto disponible */
   height: 270px !important;
   width: 250px !important;
   /* Agregar otros estilos como el color de fondo, bordes, sombras, etc. */
@@ -72,11 +68,9 @@
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   /* Hacer que la tarjeta sea un contenedor flexible con dirección de columna */
-  display: flex;
   flex-direction: column; /* Alinear los elementos verticalmente */
 }
 
-/* Estilo para el círculo de referencia */
 .initials-circle {
   width: 100%;
   /* Alinear el círculo horizontalmente en el centro */
@@ -94,7 +88,7 @@
 /* Estilo para el contenido de la card */
 .card-content {
   flex-direction: column; /* Alinear los elementos verticalmente */
-  padding: 10px;
+  padding: 2px;
 }
 
 /* Estilo para el título del card */
@@ -139,7 +133,7 @@
   float: right; /* Alinea el acordeón a la derecha */
   border: none !important;
   background-color: white !important;
-  margin-top: 130px;
+  margin-top: 50px;
 }
 
 /* Eliminar el borde de los paneles del acordeón */
@@ -153,7 +147,7 @@
 
 /* Establecer una separación entre los acordeones */
 .custom-accordion mat-expansion-panel:not(:last-child) {
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 /* Agregar una línea que separe cada acordeón */
@@ -161,7 +155,7 @@
   content: '';
   display: block;
   height: 1px;
-  background-color: #e0e0e0; /* Puedes ajustar el color de la línea según tus preferencias */
+  background-color: #ffff; /* Puedes ajustar el color de la línea según tus preferencias */
   margin-top: 8px; /* Ajusta la separación entre la línea y el contenido del acordeón */
 }
 .mat-expansion-panel {

@@ -1,25 +1,35 @@
 <div class="main-container"> 
-        <div class="center-menu">
-          <div class="logo">
-            <picture>
-              <source media='(min-width:0px)' srcset="https://micenfoc.com/wp/wp-content/uploads/2020/03/LOGO_NEGRO.png">
-              <img mat-card-image src="" alt="Photo of a Shiba Inu" style="width: 250px; height: 100px;">
-            </picture>
-          </div>
-          <div class="menu-wrapper">
-            <div [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-                  <i [ngClass]="['uil',item.icon]"></i>
-                  <a class="custom-link" routerLink="{{item.router}}" routerLinkActive="active-link">{{item.name}}</a>
-            </div>
-          </div>
-          <div class="login-wrapper">
-            <div *ngFor="let item of authMenu.authOptions">
-              <a [routerLink]="item.router" [queryParams]="item.query">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="{{ item.icon }}"><span class="custom-link"></span></mat-icon>
-              </a>
+    <div class="center-menu">
+      <div class="logo">
+        <picture>
+          <source media='(min-width:0px)' srcset="https://micenfoc.com/wp/wp-content/uploads/2020/03/LOGO_NEGRO.png">
+          <img mat-card-image src="" alt="Photo of a Shiba Inu" style="width: 250px; height: 100px;">
+        </picture>
+      </div>
+      <div class="menu-wrapper">
+        <div [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
+              <i [ngClass]="['uil',item.icon]"></i>
+              <a class="custom-link" href="{{item.router}}" routerLinkActive="active-link">{{item.name}}</a>
+        </div>
+      </div>
+      <div class="login-wrapper">
+        <div class="elementor-column-wrap elementor-element-populated">
+          <div class="elementor-widget-wrap">
+            <div class="elementor-widget-container">
+              <div class="elementor-social-icons-wrapper">
+                <a class="elementor-social-icon" *ngFor="let item of socialMediaLinks" [href]="item.link" target="_blank">
+                  <div class="circle">
+                    <i [ngClass]="item.icon"></i>
+                  </div>
+                  <span class="elementor-screen-only">{{ item.name }}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        
+      </div>
+    </div>
     <div class="spacer">
       <p class="spacer-text"><a style="color: white; text-decoration: none;" href="https://www.micenfoc.com/">Más sobre Cenfoc.com</a></p>
     </div>
@@ -28,7 +38,7 @@
           <router-outlet><app-spinner></app-spinner></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <footer class="content-info background-white border-trans-dark-grey footer-border-top flex-noshrink">
+    <!-- <footer class="content-info background-white border-trans-dark-grey footer-border-top flex-noshrink">
       <div class="container row flex-align-start full-width flex-justify-between p-y-spacer-2xl">
         <div class="col-md-2 col-xs-6">
           <section class="widget nav_menu-2 widget_nav_menu p-b-spacer-md">
@@ -119,6 +129,6 @@
           <small class="half-here inline m-r-spacer-md prim-font text-alt-dark-grey">© 2023 Iglesia Cenfoc. Todos los derechos reservados </small>
         </div>
       </div>
-    </footer>
+    </footer> -->
     
 </div>

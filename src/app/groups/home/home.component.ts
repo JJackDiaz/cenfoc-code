@@ -137,5 +137,12 @@ export class HomeComponent implements OnInit{
     const initials = words.map(word => word.charAt(0).toUpperCase()).join('');
     return initials;
   }
+  
+  removeOption(option: string) {
+    const index = this.selectedOptions.indexOf(option);
+    if (index !== -1) {
+      this.selectedOptions.splice(index, 1);
+    }
+  }
 }
 

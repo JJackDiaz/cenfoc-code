@@ -1,21 +1,24 @@
 .center-menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #ffff;
+    height: 100px !important;
   }
   
   .menu-wrapper {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     justify-content: center !important;
     text-align: center !important;
-    margin: 0 30% 0 0;
+    margin: 0 12% 0 11%;
+    
     
   }
   
   .logo {
     margin-right: auto;
+    margin-left: 10px;
   }
 
   
@@ -25,18 +28,19 @@
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 10px;
-    font-family: "Rubik", Sans-serif;
-    font-size: 17px;
-    font-weight: 750;
-    text-transform: uppercase;
+    font-family: "Rubik", Sans-serif !important;
+    font-size: 18px;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    padding: 0px 0px 0px 0px;
   }
   
   .custom-link.active-link {
-    color: red;
+    color: #DD4124 !important;
   }
   
   .custom-link:hover {
-    background-color: #f0f0f0;
+    background-color: #ffff;
   }
   
   .spacer {
@@ -45,12 +49,12 @@
     justify-content: center;
     align-items: center;
     background: #DD4124;
-    height: 45px;
+    height: 20px !important;
   }
   
   .spacer-text {
     font-size: 18px;
-    color: #f0f0f0;
+    color: #ffff;
     font-weight: bold;
     margin: 10px;
   }
@@ -132,4 +136,38 @@ footer {
 
 .footer-border-top {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.elementor-social-icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elementor-social-icon {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  color:  white;
+
+}
+
+.circle {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #DD4124 !important;
+  text-align: center;
+  line-height: 48px;
+  margin-right: 8px;
+}
+
+.circle i {
+  font-size: 20px;
+}
+
+.elementor-screen-only {
+  display: none;
 }

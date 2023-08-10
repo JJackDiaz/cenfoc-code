@@ -6,7 +6,7 @@ import { JoinComponent } from './join/join.component';
 
 export const GroupRoutes: Routes = [
   {
-    path: 'home',
+    path: 'groups',
     component: HomeComponent
   },
   {
