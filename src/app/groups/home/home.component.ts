@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FlatTreeControl } from '@angular/cdk/tree';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 import { GroupModule } from 'src/app/group-module';
 import { ApiService } from 'src/app/api.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 interface Category {
@@ -56,7 +53,7 @@ export class HomeComponent implements OnInit{
     return '';
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
     this.updateData();
@@ -142,6 +139,17 @@ export class HomeComponent implements OnInit{
     const index = this.selectedOptions.indexOf(option);
     if (index !== -1) {
       this.selectedOptions.splice(index, 1);
+    }
+  }
+
+  //Tamaños para col mobile
+  getGridCols(): number {
+    if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
+      return 1;
+    }else if (this.breakpointObserver.isMatched('(min-width: 900px)') && this.breakpointObserver.isMatched('(max-width: 1500px)')) {
+      return 2;
+    }else {
+      return 3; // Muestra tres columnas en otras pantallas
     }
   }
 }

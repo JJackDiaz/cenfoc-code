@@ -6,12 +6,22 @@
           <img mat-card-image src="" alt="Photo of a Shiba Inu" style="width: 250px; height: 100px;">
         </picture>
       </div>
+
       <div class="menu-wrapper">
-        <div [routerLink]="item.router" [queryParams]="item.query" *ngFor="let item of mainMenu.defaultOptions">
-              <i [ngClass]="['uil',item.icon]"></i>
-              <a class="custom-link" href="{{item.router}}" routerLinkActive="active-link">{{item.name}}</a>
+        <div class="menu-item" *ngFor="let item of mainMenu.defaultOptions">
+          <i [ngClass]="['uil', item.icon]"></i>
+          <a class="custom-link" href="{{ item.router }}" routerLinkActive="active-link" [class.active-link]="item.router == 'https://grupos.micenfoc.com/groups'">{{ item.name }}</a>
         </div>
+        <button mat-icon-button class="mobile-menu"  [matMenuTriggerFor]="menu2" aria-label="matMenun">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item *ngFor="let item of mainMenu.defaultOptions">
+            <a href="{{ item.router }}">{{ item.name }}</a>
+          </button>
+        </mat-menu>
       </div>
+             
       <div class="login-wrapper">
         <div class="elementor-column-wrap elementor-element-populated">
           <div class="elementor-widget-wrap">

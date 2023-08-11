@@ -3,13 +3,14 @@ import {ChangeDetectorRef, Component,OnDestroy,AfterViewInit} from '@angular/cor
 import { MenuItems } from '../../shared/menu-items/menu-items';
 import { Router } from '@angular/router';
 
-/** @title Responsive sidenav */
 @Component({
   selector: 'app-full-layout',
   templateUrl: 'full.component.html',
   styleUrls: ['full.component.css']
 })
 export class FullComponent implements OnDestroy, AfterViewInit {
+
+  
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
@@ -72,5 +73,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     { name: 'Correo', icon: 'fa fa-envelope', link: 'mailto:contacto@micenfoc.com' },
     { name: 'Login', icon: 'fa fa-user', link: 'https://admin.micenfoc.com' }
   ];
+
 }
+
 

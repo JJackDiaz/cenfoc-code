@@ -15,11 +15,6 @@ export const AppRoutes: Routes = [
       {
         path: '',
         loadChildren:
-          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
-      },
-      {
-        path: '',
-        loadChildren:
           () => import('./groups/group.module').then(m => m.GroupComponentsModule)
       },
     ]

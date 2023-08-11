@@ -9,27 +9,25 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { FullComponent } from './layouts/full/full.component';
-import { AppHeaderComponent } from './layouts/full/header/header.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoMaterialModule } from './demo-material-module';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { GroupModule } from './group-module';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullComponent,
-    AppHeaderComponent,
     SpinnerComponent,
     
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    DemoMaterialModule,
+    
     GroupModule,
     FormsModule,
     HttpClientModule,

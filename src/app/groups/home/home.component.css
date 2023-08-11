@@ -67,7 +67,6 @@
   background-color: #f0f0f0;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Hacer que la tarjeta sea un contenedor flexible con dirección de columna */
   flex-direction: column; /* Alinear los elementos verticalmente */
 }
 
@@ -162,48 +161,60 @@
   box-shadow: none;
 }
 
-/* Media Queries para dispositivos de tamaño pequeño (celulares y tablets) */
-@media (max-width: 767px) {
+.mat-grid-tile-content {
+  /* Anula los estilos predeterminados */
+  background: none !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  .custom-accordion{
+    display: none !important;
+  }
+
   .grid-container {
-    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    display: grid;
+    grid-template-columns: 1fr 0px 100fr; /* Divide la página en dos columnas y una línea de separación */
+    gap: 30px; /* Espacio entre los elementos */
+    background-color: white; /* Fondo blanco */
   }
   
   .separator {
-    height: 1px; /* Oculta la línea de separación */
+    background-color: #ccc; /* Color de la línea de separación */
+    height: 100%;
   }
-  
-  .image-item {
-    width: 100%; /* Ocupa todo el ancho disponible en dispositivos pequeños */
+
+    /* Centrar verticalmente el contenido en la celda */
+  .grid-item-cat {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  .grid-item-cat,
+
+  /* Centrar horizontalmente el contenido en la celda */
   .grid-item-group {
-    justify-content: center; /* Centra el contenido en dispositivos pequeños */
+    
+    justify-content: center;
+    align-items: center;
   }
+
   
-  .title,
-  .description {
-    text-align: center; /* Centra el texto en dispositivos pequeños */
-    margin-left: 0; /* Elimina el margen izquierdo en dispositivos pequeños */
-  }
+}
+
+
+/* Estilos para resoluciones de tablet en modo retrato */
+@media (min-width: 600px) and (max-width: 1024px) {
+
   
-  /* Oculta los nodos en dispositivos pequeños */
-  .node-label {
-    display: none;
-  }
 }
 
-/* Media Queries para dispositivos de tamaño mediano (tablets) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .card {
-    width: 48%; /* Distribuye las tarjetas en dos columnas en tablets */
-  }
-}
+/* Estilos para resoluciones de tablet en modo paisaje */
+@media (min-width: 1025px) and (max-width: 1500px) {
 
-/* Media Queries para dispositivos de tamaño grande (PCs) */
-@media (min-width: 1024px) {
-  .card {
-    width: 30.33%; /* Vuelve al tamaño original en PCs */
-  }
+  
 }
-

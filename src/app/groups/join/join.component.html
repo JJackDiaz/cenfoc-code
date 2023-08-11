@@ -1,1 +1,30 @@
-<p>join works!</p>
+<mat-grid-list cols="3" rowHeight="400px" class="grid-list">
+    <mat-grid-tile colspan="1" class="card">
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" class="card">
+      <!-- Formulario -->
+      <form class="contact-form">
+            <h1>Bienvenidos!</h1>
+            <br>
+            <mat-form-field>
+            <input matInput placeholder="Nombre" required>
+            </mat-form-field>
+            <mat-form-field>
+            <input matInput placeholder="Teléfono" required>
+            </mat-form-field>
+            <mat-form-field>
+            <input matInput placeholder="Correo electrónico" required>
+            </mat-form-field>
+            
+            <input matInput hidden>
+            
+            <button mat-raised-button color="primary" type="submit">Unirme</button>
+        </form>
+    </mat-grid-tile>
+  
+    <mat-grid-tile colspan="1" class="card">
+      
+    </mat-grid-tile>
+  </mat-grid-list>
+  

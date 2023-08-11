@@ -14,7 +14,7 @@ export const GroupRoutes: Routes = [
     component: ShowComponent
   },
   {
-    path: 'join',
+    path: 'groups/:id/register',
     component: JoinComponent
   },
   
