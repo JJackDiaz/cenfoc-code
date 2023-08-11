@@ -172,13 +172,13 @@
 
   .grid-container {
     display: grid;
-    grid-template-columns: 1fr 0px 100fr; /* Divide la página en dos columnas y una línea de separación */
+    grid-template-columns: 1fr 5px 600fr; /* Divide la página en dos columnas y una línea de separación */
     gap: 30px; /* Espacio entre los elementos */
     background-color: white; /* Fondo blanco */
   }
   
   .separator {
-    background-color: #ccc; /* Color de la línea de separación */
+    background-color: #e6490a; /* Color de la línea de separación */
     height: 100%;
   }
 

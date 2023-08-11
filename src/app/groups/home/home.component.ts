@@ -151,6 +151,18 @@ export class HomeComponent implements OnInit{
     }else {
       return 3; // Muestra tres columnas en otras pantallas
     }
+
   }
+
+  getHeight(): string {
+    if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
+      return '16:16';
+    } else if (this.breakpointObserver.isMatched('(min-width: 900px)') && this.breakpointObserver.isMatched('(max-width: 1500px)')) {
+      return '2:1';
+    } else {
+      return '5:4';
+    }
+  }
+  
 }
 

@@ -3,6 +3,7 @@ import { Component, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { GroupModule } from 'src/app/group-module';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface Group {
   id: string;
@@ -27,7 +28,7 @@ export class ShowComponent implements OnInit{
   details: Group[] = [];
   daysOfWeek = ['', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado','Domingo'];
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.updateData()
@@ -61,5 +62,16 @@ export class ShowComponent implements OnInit{
       console.error('No se encontró el categoryId en la ruta.');
     }
   };
+
+  getGridCols(): number {
+    if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
+      return 1;
+    }else if (this.breakpointObserver.isMatched('(min-width: 900px)') && this.breakpointObserver.isMatched('(max-width: 1500px)')) {
+      return 1;
+    }else {
+      return 3;
+    }
+
+  }
 
 }

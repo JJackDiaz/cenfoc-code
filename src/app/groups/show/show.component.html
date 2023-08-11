@@ -1,10 +1,10 @@
-<mat-grid-list cols="3" rowHeight="400px" class="grid-list" *ngFor="let detail of details">
+<mat-grid-list [cols]="getGridCols()" rowHeight="400px" class="grid-list" *ngFor="let detail of details">
   <mat-grid-tile colspan="1" class="card">
     <div class="user-header">
       <div class="circle-container">
         <div class="initials">CF</div>
       </div>
-      <h1>Celula {{ details[0].leader }}</h1>
+      <h1>{{ details[0].leader }}</h1>
     </div>
   </mat-grid-tile>
 
@@ -17,9 +17,17 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="1" class="card">
-    <div class="button-container">
-      <button mat-raised-button class="animated-button">UNIRSE</button>
+  <mat-grid-tile colspan="1" class="button-container card">
+    <div class="">
+      <button mat-raised-button class="animated-button">UNIRSE A ESTE GRUPO</button>
+    </div>
+    <div class="">
+      <button mat-raised-button class="share-button" [matMenuTriggerFor]="shared" aria-label="matshared"><i class="fa fa-share fa-2xl"></i></button>
+      <mat-menu #shared="matMenu">
+        <button mat-menu-item>
+          <a href="">Hola</a>
+        </button>
+      </mat-menu>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

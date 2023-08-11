@@ -61,7 +61,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
       {
         name: 'CONEXION',
         icon: 'uil uil-estate',
-        router: ['http://localhost:4200/groups']
+        router: ['https://grupos.micenfoc.com/groups']
       },
     ]
 

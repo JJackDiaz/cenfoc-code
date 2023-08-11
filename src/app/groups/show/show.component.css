@@ -18,7 +18,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(25deg, #ff0000, black);
+  background: linear-gradient(25deg, #ff0000, #ff0000);
   color: white;
   font-size: 40px;
   font-weight: bold;
@@ -47,132 +47,46 @@
 .button-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  color: red;
-  font-size: 80px !important;
-  margin-bottom: 20px;
 }
 
 .animated-button {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  margin: 5px;
+  width: 300px !important;
+  height: 50px !important;
+  border-radius: 5px;
   background-color: red !important;
   color: white !important;
   border: none;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  font-size: 28px !important;
-  animation: pulse 2s ease-in-out infinite;
-  font-weight: bold !important;
+  font-size: 20px !important;
 }
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+.share-button {
+  margin: 5px;
+  width: 80px !important;
+  height: 50px !important;
+  border-radius: 5px;
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  cursor: pointer;
 }
 
 h1, h2, h3{
   font-weight: bold;
 }
 
-/* Para dispositivos pequeños (e.g. phones) */
-@media only screen and (max-width: 600px) {
-  .grid-list {
-    cols: 1; /* Cambiar a una sola columna en dispositivos pequeños */
-  }
-
-  .circle-container {
-    width: 80px;
-    height: 80px;
-    font-size: 30px;
-  }
-
-  .profile-image {
-    width: 60px;
-    height: 60px;
-  }
-
-  .user-header h1 {
-    font-size: 18px;
-  }
-
-  .info-container h1 {
-    font-size: 20px;
-  }
-
-  .info-container p {
-    font-size: 14px;
-  }
-
-  .button-container {
-    font-size: 30px;
-  }
-
-  .animated-button {
-    width: 80px;
-    height: 80px;
-    font-size: 20px;
-  }
+/* ------------------------------------------------------------------------------------------------------------------------ */
+@media (max-width: 768px) {
+  
 }
 
-@media only screen and (max-width: 600px) {
-  .user-header {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
+/* Estilos para resoluciones de tablet en modo retrato */
+@media (min-width: 600px) and (max-width: 1024px) {
 
-  .circle-container {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  .button-container {
-    margin-top: 20px;
-  }
+  
 }
 
-/* Para dispositivos grandes (e.g. laptops, desktops) */
-@media only screen and (min-width: 1025px) {
-  .circle-container {
-    width: 150px;
-    height: 150px;
-    font-size: 60px;
-  }
+/* Estilos para resoluciones de tablet en modo paisaje */
+@media (min-width: 1025px) and (max-width: 1500px) {
 
-  .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .user-header h1 {
-    font-size: 30px;
-  }
-
-  .info-container h1 {
-    font-size: 30px;
-  }
-
-  .info-container p {
-    font-size: 18px;
-  }
-
-  .button-container {
-    font-size: 80px;
-  }
-
-  .animated-button {
-    width: 120px;
-    height: 120px;
-    font-size: 40px;
-  }
 }
-
