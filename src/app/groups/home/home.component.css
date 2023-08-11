@@ -161,13 +161,6 @@
   box-shadow: none;
 }
 
-.mat-grid-tile-content {
-  /* Anula los estilos predeterminados */
-  background: none !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
 
 /* ------------------------------------------------------------------------------------------------------------------- */
 
