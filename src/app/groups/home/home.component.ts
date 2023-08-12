@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { GroupModule } from 'src/app/group-module';
+import { GroupModule } from 'src/app/groups/group-module';
 import { ApiService } from 'src/app/api.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 

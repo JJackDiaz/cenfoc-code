@@ -1,26 +1,34 @@
-<mat-grid-list cols="3" rowHeight="400px">
-    <mat-grid-tile colspan="1" class="card">
-      <div class="user-header">
-        <div class="circle-container">
-            <div class="initials">CF</div>
-        </div>          
-        <h1>Celula Freddy Cruz</h1>
-      </div>
-    </mat-grid-tile>
-  
-    <mat-grid-tile colspan="1" class="card">
-      <div class="info-container">
-        <h1>Descripción</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi deleniti natus, possimus, autem fugit obcaecati recusandae quia laboriosam, consectetur iusto dolorum dolorem? Perspiciatis, deleniti? Error consequuntur quo nulla inventore!</p>
-        <h1>Horarios</h1>
-        <p>Miercoles a las  21:00 PM</p>
-      </div>
-    </mat-grid-tile>
-  
-    <mat-grid-tile colspan="1" class="card">
-      <div class="button-container">
-        <button mat-raised-button class="animated-button">UNIRSE</button>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  
+<mat-grid-list [cols]="getGridCols()" *ngFor="let detail of details">
+
+  <mat-grid-tile  class="card">
+    <div class="user-header">
+    <div class="circle-container">
+      <div class="initials">CF</div>
+    </div>
+    <h1>{{ details[0].leader }}</h1>
+  </div>
+</mat-grid-tile>
+
+<mat-grid-tile  class="card">
+  <div class="info-container">
+    <h1>Descripción</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi deleniti natus, possimus, autem fugit obcaecati recusandae quia laboriosam, consectetur iusto dolorum dolorem? Perspiciatis, deleniti? Error consequuntur quo nulla inventore!</p>
+    <h1>Horarios</h1>
+    <p>{{ daysOfWeek[details[0].day] }} - {{ detail.hour }}</p>
+  </div>
+</mat-grid-tile>
+
+<mat-grid-tile  class="button-container" *ngFor="let detail of details" class="card">
+  <div>
+    <button mat-raised-button class="animated-button" [routerLink]="['/groups/',details[0].id, 'register']">UNIRSE A ESTE GRUPO</button>
+  </div>
+  <div class="">
+    <button mat-raised-button class="share-button" [matMenuTriggerFor]="shared" aria-label="matshared"><i class="fa fa-share fa-2xl"></i></button>
+    <mat-menu #shared="matMenu">
+      <button mat-menu-item>
+        <a href="">Hola</a>
+      </button>
+    </mat-menu>
+  </div>
+</mat-grid-tile>
+</mat-grid-list>

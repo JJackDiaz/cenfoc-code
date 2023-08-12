@@ -1,0 +1,61 @@
+mat-grid-list {
+  margin: 0; /* Elimina el margen por defecto del body */
+  padding: 0; /* Elimina el padding por defecto del body */
+  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important; /* Cambia la ruta a la ubicación de tu imagen */
+  background-size: cover; /* Escala la imagen para que cubra toda la pantalla */
+  background-position: center center; /* Centra la imagen en la pantalla */
+  background-repeat: repeat; /* Evita que la imagen se repita */
+  height: 90vh !important;
+}
+
+/* Estilos para la tarjeta (card) */
+.form-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el formulario */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos para los campos de entrada */
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para input de texto */
+.mat-form-field.type-text {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para input de número */
+.mat-form-field.type-number {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilos para input de correo electrónico */
+.mat-form-field.type-email {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+
+  mat-grid-list {
+    margin: 0 !important;
+    background-size: cover; /* Escala la imagen para que cubra toda la pantalla */
+    height: 60vh !important;
+  }
+  
+
+  
+}

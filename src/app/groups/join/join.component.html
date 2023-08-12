@@ -1,29 +1,48 @@
-<mat-grid-list cols="3" rowHeight="400px" class="grid-list">
-    <mat-grid-tile colspan="1" class="card">
+<mat-grid-list [cols]="getGridCols()">
+    <mat-grid-tile class="card">
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="1" class="card">
+    <mat-grid-tile>
       <!-- Formulario -->
-      <form class="contact-form">
+      <div class="form-container">
+        <div class="form-card">
+          <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+
             <h1>Bienvenidos!</h1>
+            <p>Centro de formación cristiana</p>
+
             <br>
-            <mat-form-field>
-            <input matInput placeholder="Nombre" required>
-            </mat-form-field>
-            <mat-form-field>
-            <input matInput placeholder="Teléfono" required>
-            </mat-form-field>
-            <mat-form-field>
-            <input matInput placeholder="Correo electrónico" required>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre Completo</mat-label>
+              <input matInput placeholder="Nombre" formControlName="name">
+              <mat-error *ngIf="postForm.get('name')?.hasError('required')">Campo requerido</mat-error>
+              <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
             
-            <input matInput hidden>
+            <mat-form-field appearance="outline">
+              <mat-label>Télefono</mat-label>
+              <input matInput placeholder="Teléfono" formControlName="phone">
+              <mat-error *ngIf="postForm.get('phone')?.hasError('required')">Campo requerido</mat-error>
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
             
-            <button mat-raised-button color="primary" type="submit">Unirme</button>
-        </form>
+            <mat-form-field appearance="outline">
+              <mat-label>Correo</mat-label>
+              <input matInput placeholder="Correo electrónico" formControlName="email">
+              <mat-error *ngIf="postForm.get('email')?.hasError('required')">Campo requerido</mat-error>
+              <mat-error *ngIf="postForm.get('email')?.hasError('email')">Correo electrónico inválido</mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            
+            <button mat-raised-button color="warn" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
     </mat-grid-tile>
+    
   
-    <mat-grid-tile colspan="1" class="card">
+    <mat-grid-tile class="card">
       
     </mat-grid-tile>
   </mat-grid-list>

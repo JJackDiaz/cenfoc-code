@@ -1,8 +1,32 @@
-.card {
-  background-color: white;
-  color: black;
-  text-align: center;
+mat-grid-list {
+  margin: 0; /* Elimina el margen por defecto del body */
+  padding: 0; /* Elimina el padding por defecto del body */
+  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important; /* Cambia la ruta a la ubicación de tu imagen */
+  background-size: cover; /* Escala la imagen para que cubra toda la pantalla */
+  background-position: center center; /* Centra la imagen en la pantalla */
+  background-repeat: repeat; /* Evita que la imagen se repita */
+  height: 90vh !important;
 }
+
+mat-card{
+  background-color: white !important;
+  padding: 50px !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1) !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  margin-top: 80px !important;
+  text-align: center !important;
+  width: 80%;
+  height: 350px;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
 
 .user-header {
   display: flex;
@@ -13,8 +37,8 @@
 
 .circle-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -27,6 +51,7 @@
 
 .initials {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .profile-image {
@@ -50,19 +75,21 @@
 }
 
 .animated-button {
-  margin: 5px;
-  width: 300px !important;
+  
+  margin: 5px !important;
+  width: 400px !important;
   height: 50px !important;
   border-radius: 5px;
   background-color: red !important;
   color: white !important;
-  border: none;
-  cursor: pointer;
+  border: none !important;
+  cursor: pointer !important;
   font-size: 20px !important;
 }
 .share-button {
+  margin-top: 5px !important;
   margin: 5px;
-  width: 80px !important;
+  width: 400px !important;
   height: 50px !important;
   border-radius: 5px;
   background-color: red !important;
@@ -77,6 +104,24 @@ h1, h2, h3{
 
 /* ------------------------------------------------------------------------------------------------------------------------ */
 @media (max-width: 768px) {
+
+  .card {
+    width: 100% !important; /* Ocupa todo el ancho disponible */
+    margin: 10px 0 !important; /* Agrega margen vertical para separar las tarjetas en dispositivos de teléfono */
+  }
+
+  .circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(25deg, #ff0000, #ff5500); /* Cambia el segundo color para un efecto degradado */
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+  }
   
 }
 

@@ -19,8 +19,7 @@ export class ApiService {
     return this.http.get<any>(`${this.apiUrl}/groups?expand=type,typeConnection,leader&filter[id]=${id}`);
   }
 
-  // dns2.p02.nsone.net
-  // dns1.p02.nsone.net
-  // dns3.p02.nsone.net
-  // dns4.p02.nsone.net
+  public createPerson(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/person/enroll`, data);
+  }
 }

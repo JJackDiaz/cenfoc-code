@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { GroupModule } from 'src/app/group-module';
+import { GroupModule } from 'src/app/groups/group-module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface Group {
@@ -67,11 +67,20 @@ export class ShowComponent implements OnInit{
     if (this.breakpointObserver.isMatched('(max-width: 768px)')) {
       return 1;
     }else if (this.breakpointObserver.isMatched('(min-width: 900px)') && this.breakpointObserver.isMatched('(max-width: 1500px)')) {
-      return 1;
+      return 3;
     }else {
       return 3;
     }
 
+  }
+
+  copyLinkToClipboard(link: string): void {
+    const el = document.createElement('textarea');
+    el.value = link;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 
 }
