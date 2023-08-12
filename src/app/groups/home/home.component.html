@@ -39,7 +39,7 @@
               <div class="card-content">
                 <div class="card-title">{{ category.leader }}</div>
                 <div class="info">{{ category.address }}</div>
-                <p class="info">Horario: {{ category.hour }}</p>
+                <p class="info">{{ category.hour }} Hrs</p>
                 <div class="info" style="font-weight: bold; margin-top: 10px;">{{ category.day }} - {{ category.typeConnection }}</div>
                 <div class="button-join">
                   <button class="join" mat-raised-button [routerLink]="['/groups', category.id]">Unirse</button>

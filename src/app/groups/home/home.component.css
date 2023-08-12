@@ -68,7 +68,7 @@
 /* Estilo para cada tarjeta */
 .card {
   height: 270px !important;
-  width: 250px !important;
+  width: 350px !important;
   /* Agregar otros estilos como el color de fondo, bordes, sombras, etc. */
   background-color: #f0f0f0;
   border-radius: 10px;

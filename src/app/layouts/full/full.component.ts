@@ -49,7 +49,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
         router: ['https://www.micenfoc.com/ministry/']
       },
       {
-        name: 'ALABANZAS',
+        name: 'ALABANZA',
         icon: 'uil uil-estate',
         router: ['/https://www.micenfoc.com/cenfoc-adoracion/']
       },

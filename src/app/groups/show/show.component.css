@@ -39,10 +39,10 @@ mat-card{
   display: flex;
   justify-content: center !important;
   align-items: center !important;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  background: linear-gradient(25deg, #ff0000, #ff0000);
+  background: linear-gradient(25deg, #DD4124, #DD4124);
   color: white;
   font-size: 40px;
   font-weight: bold;
@@ -80,7 +80,7 @@ mat-card{
   width: 400px !important;
   height: 50px !important;
   border-radius: 5px;
-  background-color: red !important;
+  background-color: #DD4124 !important;
   color: white !important;
   border: none !important;
   cursor: pointer !important;
@@ -92,7 +92,7 @@ mat-card{
   width: 400px !important;
   height: 50px !important;
   border-radius: 5px;
-  background-color: red !important;
+  background-color: #DD4124 !important;
   color: white !important;
   border: none;
   cursor: pointer;
@@ -117,7 +117,7 @@ h1, h2, h3{
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: linear-gradient(25deg, #ff0000, #ff5500); /* Cambia el segundo color para un efecto degradado */
+    background: linear-gradient(25deg, #DD4124, #DD4124); /* Cambia el segundo color para un efecto degradado */
     color: white;
     font-size: 40px;
     font-weight: bold;
