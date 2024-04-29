@@ -20,19 +20,19 @@
         <mat-card-content>
           <div class="header-content">
             <mat-icon matSuffix>home</mat-icon>
-            <h6><a href="https://www.google.com/maps/search/Cerro cruz de piedra 778" target="_blank">Cerro cruz de piedra 778</a></h6>
+            <h6><a [href]="'https://www.google.com/maps/search/' + detail.address" target="_blank">{{ detail.address }}</a></h6>
           </div>
           <div class="header-content">
             <mat-icon matSuffix>person</mat-icon>
-            <h6> Jovenes - Presencial</h6>
+            <h6>{{ details[0].typeConnection }}</h6>
           </div>
           <div class="header-content">
             <mat-icon matSuffix>calendar_today</mat-icon>
-            <h6> {{ daysOfWeek[details[0].day] }} - {{ detail.hour }}</h6>  
+            <h6> {{ daysOfWeek[details[0].day] }} - {{ detail.hour }} ({{ details[0].typeConnection }})</h6>  
           </div>
           <div class="header-content">
             <mat-icon matSuffix>receipt</mat-icon>
-            <h6>Descripcion</h6>
+            <h6>{{ details[0].type }}</h6>
           </div>
         </mat-card-content>
       </mat-card>
@@ -49,7 +49,7 @@
             <p>Comparte bendición</p>
             <button mat-raised-button class="share-button" [matMenuTriggerFor]="shared" aria-label="matshared"><i class="fa fa-share fa-2xl"></i></button>
             <mat-menu #shared="matMenu">
-              <button mat-menu-item (click)="copyLinkToClipboard('https://www.ejemplo.com')">Copiar enlace</button>
+              <button mat-menu-item (click)="copyLinkToClipboard(getCurrentUrl())">Copiar enlace</button>
             </mat-menu>      
           </div>
         </mat-card-content>

@@ -8,7 +8,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <mat-list>
-          <mat-chip-option style="margin: 2px;" *ngFor="let option of faq.option" (click)="faq.category === 'Horario' ? onSelectHorarioOption(option) : onSelectDiaOption(option)"
+          <mat-chip-option style="margin: 2px;" *ngFor="let option of faq.option" (click)="faq.category === 'Horarios' ? onSelectHorarioOption(option) : onSelectDiaOption(option)"
           color="warn"
           (click)="toggleOption(option)"
         >
@@ -33,7 +33,7 @@
     <div>
       <mat-grid-list [cols]="getGridCols()" [rowHeight]="getHeight()">
         <mat-grid-tile *ngFor="let category of categories" class="grid-item-group">
-          <div class="card-container">
+          <div class="card-container" *ngIf="category; else elseBlock">
             <mat-card class="card">
               <div class="initials-circle">{{ getInitials(category.leader) }}</div>
               <div class="card-content">
@@ -47,6 +47,9 @@
               </div>
             </mat-card>
           </div>
+          <ng-template #elseBlock>
+            <p>No hay registros disponibles.</p>
+          </ng-template>          
         </mat-grid-tile>
       </mat-grid-list>
     </div> 

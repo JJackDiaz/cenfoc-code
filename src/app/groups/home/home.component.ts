@@ -28,14 +28,36 @@ interface Faq {
 })
 export class HomeComponent implements OnInit{
 
+  obtenerNumeroSemana(nombreDia: string): number | null {
+    switch (nombreDia) {
+      case 'Lunes':
+        return 1;
+      case 'Martes':
+        return 2;
+      case 'Miércoles':
+        return 3;
+      case 'Jueves':
+        return 4;
+      case 'Viernes':
+        return 5;
+      case 'Sábado':
+        return 6;
+      case 'Domingo':
+        return 7;
+      default:
+        return null; // En caso de que el nombre del día no sea válido
+    }
+  }
+
   frequentlyAskedQuestions: Faq[] = [
     {
-      category: 'Horario',
-      option: ['11:00', '12:00']
+      category: 'Horarios',
+      option: ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30', '00:00']
+
     },
     {
-      category: 'Dia',
-      option: ['1', '2', '3', '4', '5', '6', '7']
+      category: 'Dias',
+      option: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
     },
   ];
 
@@ -91,9 +113,18 @@ export class HomeComponent implements OnInit{
     if (this.selectedHorarioOptions.length > 0) {
       additionalUrl += `&filter[hour]=${this.selectedHorarioOptions.join(',')}`;
     }
+    
     if (this.selectedDiaOptions.length > 0) {
-      additionalUrl += `&filter[day]=${this.selectedDiaOptions.join(',')}`;
+      // Mapea los nombres de los días a sus números correspondientes
+      const diasNumeros = this.selectedDiaOptions.map(dia => this.obtenerNumeroSemana(dia));
+      
+      // Filtra los posibles valores nulos y los convierte a cadena
+      const diasFiltrados = diasNumeros.filter(dia => dia !== null).map(dia => dia!.toString());
+      
+      // Construye la parte de la URL utilizando los números de los días
+      additionalUrl += `&filter[day]=${diasFiltrados.join(',')}`;
     }
+    
 
     this.apiService.getGroups(additionalUrl).subscribe(
       data => {

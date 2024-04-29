@@ -34,6 +34,16 @@
               <mat-error *ngIf="postForm.get('email')?.hasError('email')">Correo electrónico inválido</mat-error>
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Género</mat-label>
+              <mat-select name="gender" [(ngModel)]="generoSeleccionado" required>
+                <mat-option *ngFor="let opcion of opcionesGenero" [value]="opcion">{{ opcion }}</mat-option>
+              </mat-select>      
+              <mat-error *ngIf="postForm.get('gender')?.hasError('required')">Campo requerido</mat-error>
+              <mat-error *ngIf="postForm.get('gender')?.hasError('gender')">Correo electrónico inválido</mat-error>
+              <mat-icon matSuffix>gender</mat-icon>
+            </mat-form-field>
             
             <button mat-raised-button color="warn" type="submit">Enviar</button>
           </form>

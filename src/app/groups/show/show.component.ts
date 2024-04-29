@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { Location, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
@@ -12,6 +12,7 @@ interface Group {
   hour: string;
   leader: string;
   typeConnection: string;
+  type: string;
 }
 
 @Component({
@@ -28,7 +29,10 @@ export class ShowComponent implements OnInit{
   details: Group[] = [];
   daysOfWeek = ['', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado','Domingo'];
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute, private breakpointObserver: BreakpointObserver) {}
+  constructor(private apiService: ApiService,
+              private route: ActivatedRoute,
+              private breakpointObserver: BreakpointObserver,
+            ) {}
 
   ngOnInit(): void {
     this.updateData()
@@ -48,7 +52,8 @@ export class ShowComponent implements OnInit{
               address: data[i].address,
               day: data[i].day,
               hour: data[i].hour,
-              typeConnection: data[i].typeConnection
+              typeConnection: data[i].typeConnection.name,
+              type: data[i].type.name
             };
             this.details.push(group);
             console.log(data);
@@ -81,6 +86,12 @@ export class ShowComponent implements OnInit{
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+  }
+
+  getCurrentUrl() {
+    const currentUrl = window.location.href
+    console.log('URL actual:', currentUrl);
+    return currentUrl;
   }
 
 }

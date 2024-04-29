@@ -1,0 +1,6 @@
+.background-image {
+    background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%; /* Opcional, asegura que el div ocupe todo el espacio vertical */
+  }

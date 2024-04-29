@@ -1,7 +1,7 @@
 mat-grid-list {
   margin: 0; /* Elimina el margen por defecto del body */
   padding: 0; /* Elimina el padding por defecto del body */
-  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important; /* Cambia la ruta a la ubicación de tu imagen */
+  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important;
   background-size: cover; /* Escala la imagen para que cubra toda la pantalla */
   background-position: center center; /* Centra la imagen en la pantalla */
   background-repeat: repeat; /* Evita que la imagen se repita */

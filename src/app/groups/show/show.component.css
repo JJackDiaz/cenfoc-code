@@ -1,11 +1,11 @@
 mat-grid-list {
-  margin: 0; /* Elimina el margen por defecto del body */
-  padding: 0; /* Elimina el padding por defecto del body */
-  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important; /* Cambia la ruta a la ubicación de tu imagen */
-  background-size: cover; /* Escala la imagen para que cubra toda la pantalla */
-  background-position: center center; /* Centra la imagen en la pantalla */
-  background-repeat: repeat; /* Evita que la imagen se repita */
-  height: 90vh !important;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://admin.micenfoc.com/images/auth-bg-image.png') !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  height: 100vh !important;
 }
 
 mat-card{
@@ -24,7 +24,8 @@ mat-card{
 
 .header-content {
   display: flex;
-  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  align-items: center;
+  margin: 10px;
 }
 
 
